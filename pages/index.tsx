@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { random } from 'lodash'
 import type { MouseEventHandler } from 'react'
 import Head from 'next/head' 
 import { LazyImage } from '@/components/RandomFox'
@@ -8,7 +9,7 @@ interface ImageItem {
   url: string
 }
 
-const randomNumber = (): number => Math.floor(Math.random() * 123) + 1
+const randomNumber = () => random(1, 100)
 const generateId = (): string => Math.random().toString(36).substr(2, 9)
 
 export default function Home() {
