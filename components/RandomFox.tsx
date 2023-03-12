@@ -1,12 +1,16 @@
-// generate a random number between 1 and 123
-const randomNumber = (): number => Math.floor(Math.random() * 123) + 1
+interface Props {
+    image: string,
+    alt: string
+}
 
-export const RandomFox = (): JSX.Element => {
-    const image = `https://randomfox.ca/images/${randomNumber()}.jpg`
-    return <img 
-        width={300} 
-        height="auto" 
-        src={image}
-        className="mx-auto rounded-md bg-gray-300"
+export const RandomFox = ({ image, alt }: Props): JSX.Element => {
+    return (
+        <img 
+            width={300} 
+            height="auto" 
+            src={image}
+            alt={alt}
+            className="mx-auto rounded-md bg-gray-300"
         />
+    )
 }

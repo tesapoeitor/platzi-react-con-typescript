@@ -1,7 +1,19 @@
+import { useState } from 'react'
 import Head from 'next/head' 
 import { RandomFox } from '@/components/RandomFox'
 
+// generate a random number between 1 and 123
+const randomNumber = (): number => Math.floor(Math.random() * 123) + 1
+
 export default function Home() {
+  // const image = `https://randomfox.ca/images/${randomNumber()}.jpg`
+  const [images, setImages] = useState<string[]>([
+    `https://randomfox.ca/images/${randomNumber()}.jpg`,
+    `https://randomfox.ca/images/${randomNumber()}.jpg`,
+    `https://randomfox.ca/images/${randomNumber()}.jpg`,
+    `https://randomfox.ca/images/${randomNumber()}.jpg`,
+  ])
+
   return (
     <>
       <Head>
@@ -13,7 +25,13 @@ export default function Home() {
       <main>
         <h1 className="text-3xl font-bold underline">
           Hello Platzi!
-          <RandomFox/>
+          
+          {images.map((image, index) => (
+            <div key={index} className='p-4'>
+              <RandomFox image={image} alt='Fox' />
+            </div>
+          ))}
+
         </h1>
       </main>
     </>
