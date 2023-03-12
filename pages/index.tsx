@@ -30,21 +30,24 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main>
+      <main className='text-center mx-auto w-64'>
         <h1 className="text-3xl font-bold underline">
-          Hello Platzi!
-          
-          <button onClick={addNewFox}>Add Image</button>
+          Random Fox!
+        </h1>
+
+          <button 
+            onClick={addNewFox}
+            className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded my-2'
+          >Add Image</button>
+
           {images.map((image) => (
             <div key={image.id} className='p-4'>
               <LazyImage 
                 src={image.url}
-                // onLazyLoad={(node) => {console.log(node.src)}}  
+                // onLazyLoad={(img) => {console.log(img.src)}}  
               />
             </div>
           ))}
-
-        </h1>
       </main>
     </>
   )
